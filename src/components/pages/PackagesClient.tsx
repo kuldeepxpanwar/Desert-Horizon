@@ -179,7 +179,7 @@ export default function PackagesClient() {
                   </div>
 
                   <Button 
-                    variant="outline" 
+                    variant="ghost" 
                     className="w-full justify-center group-hover:bg-gold group-hover:text-white group-hover:border-gold transition-colors duration-300"
                     onClick={() => handleBook(pkg.title)}
                   >

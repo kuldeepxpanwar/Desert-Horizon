@@ -80,9 +80,31 @@ export default function ExperiencesClient() {
           className="relative z-10 text-center text-warm-white px-6 mt-20"
         >
           <span className="text-sm uppercase tracking-[0.3em] mb-6 block text-gold">Immersive Journeys</span>
-          <h1 className="text-5xl md:text-7xl font-serif leading-tight">
-            Curated Experiences
-          </h1>
+          <motion.h1 
+            className="text-5xl md:text-7xl font-serif leading-tight flex justify-center gap-x-3 flex-wrap"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } }
+            }}
+          >
+            {"Curated Experiences".split(" ").map((word, wordIndex) => (
+              <span key={wordIndex} className="flex">
+                {word.split("").map((letter, letterIndex) => (
+                  <motion.span
+                    key={letterIndex}
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
+              </span>
+            ))}
+          </motion.h1>
         </motion.div>
       </section>
 

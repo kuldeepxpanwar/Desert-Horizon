@@ -1,12 +1,51 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import HorizonLine from "@/components/ui/HorizonLine";
 import Button from "@/components/ui/Button";
 import BookingModal from "@/components/ui/BookingModal";
 import { Clock, MapPin, CheckCircle2 } from "lucide-react";
+
+const CipherButton = ({ text, onClick }: { text: string, onClick: () => void }) => {
+  const [displayText, setDisplayText] = useState(text);
+  const [isHovered, setIsHovered] = useState(false);
+  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*";
+
+  useEffect(() => {
+    if (!isHovered) {
+      setDisplayText(text);
+      return;
+    }
+    
+    let iteration = 0;
+    const interval = setInterval(() => {
+      setDisplayText(text.split("").map((letter, index) => {
+        if (letter === " ") return " ";
+        if (index < iteration) return text[index];
+        return chars[Math.floor(Math.random() * chars.length)];
+      }).join(""));
+      
+      if (iteration >= text.length) clearInterval(interval);
+      iteration += 1 / 2;
+    }, 30);
+    
+    return () => clearInterval(interval);
+  }, [isHovered, text]);
+
+  return (
+    <div className="w-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <Button 
+        variant="ghost" 
+        className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg transition-colors duration-300 uppercase tracking-widest"
+        onClick={onClick}
+      >
+        <span className="inline-block text-center">{displayText}</span>
+      </Button>
+    </div>
+  );
+};
 
 export default function PackagesClient() {
   const heroRef = useRef(null);
@@ -194,13 +233,7 @@ export default function PackagesClient() {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <Button 
-                      variant="ghost" 
-                      className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg transition-colors duration-300"
-                      onClick={() => handleBook(pkg.title)}
-                    >
-                      Enquire Now
-                    </Button>
+                    <CipherButton text="Enquire Now" onClick={() => handleBook(pkg.title)} />
                   </div>
                 </div>
               </motion.div>

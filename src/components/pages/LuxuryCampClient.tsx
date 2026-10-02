@@ -7,6 +7,28 @@ import HorizonLine from "@/components/ui/HorizonLine";
 import Button from "@/components/ui/Button";
 import { ArrowRight, Wifi, Coffee, Wind, Bath, BedDouble, Shield } from "lucide-react";
 
+const BlurTextButton = ({ text }: { text: string }) => {
+  return (
+    <motion.div whileHover="hover" className="w-full relative z-10 mt-auto">
+      <Button variant="ghost" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
+        <motion.span 
+          variants={{
+            hover: { 
+              filter: ["blur(0px)", "blur(4px)", "blur(0px)"],
+              scale: [1, 1.05, 1],
+              letterSpacing: ["normal", "0.2em", "normal"] 
+            }
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="inline-block"
+        >
+          {text}
+        </motion.span>
+      </Button>
+    </motion.div>
+  );
+};
+
 export default function LuxuryCampClient() {
   const heroRef = useRef(null);
   const { scrollYProgress: heroScroll } = useScroll({
@@ -151,9 +173,7 @@ export default function LuxuryCampClient() {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <Button variant="ghost" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
-                      View Details
-                    </Button>
+                    <BlurTextButton text="View Details" />
                   </div>
                 </div>
               </motion.div>

@@ -45,8 +45,10 @@ export default function Navbar() {
   );
 
   const links = [
+    { name: "Packages", href: "/packages" },
     { name: "Experiences", href: "/experiences" },
     { name: "Luxury Camp", href: "/luxury-camp" },
+    { name: "Taxi", href: "/taxi" },
     { name: "Gallery", href: "/gallery" },
     { name: "Our Story", href: "/about" },
   ];

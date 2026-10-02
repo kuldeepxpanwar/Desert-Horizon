@@ -33,6 +33,8 @@ export default function Footer() {
         <div>
           <h3 className="text-sm uppercase tracking-widest font-semibold text-gold mb-6">Explore</h3>
           <ul className="space-y-4">
+            <li><Link href="/packages" className="text-warm-white/70 hover:text-gold transition-colors">Tour Packages</Link></li>
+            <li><Link href="/taxi" className="text-warm-white/70 hover:text-gold transition-colors">Taxi Services</Link></li>
             <li><Link href="/experiences" className="text-warm-white/70 hover:text-gold transition-colors">Experiences</Link></li>
             <li><Link href="/luxury-camp" className="text-warm-white/70 hover:text-gold transition-colors">Luxury Camp</Link></li>
             <li><Link href="/gallery" className="text-warm-white/70 hover:text-gold transition-colors">Gallery</Link></li>

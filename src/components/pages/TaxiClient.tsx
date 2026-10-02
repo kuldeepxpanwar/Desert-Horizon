@@ -151,14 +151,14 @@ export default function TaxiClient() {
                     <span className="text-xl font-bold text-white drop-shadow-sm">{route.sedanPrice}</span>
                   </div>
                   <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 p-4 rounded-lg shadow-sm min-w-[120px] relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-white text-blue-700 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg shadow-sm">SUV</div>
+                    <div className="absolute top-0 right-0 bg-gold text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg shadow-sm">SUV</div>
                     <span className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 mt-1 drop-shadow-sm">Innova</span>
                     <span className="text-xl font-bold text-white drop-shadow-sm">{route.suvPrice}</span>
                   </div>
                 </div>
 
                 <div className="w-full md:w-auto relative z-10">
-                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center bg-white text-blue-700 hover:bg-blue-50 border-none shadow-md hover:shadow-lg">
+                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center shadow-md">
                     Book Cab
                   </Button>
                 </div>

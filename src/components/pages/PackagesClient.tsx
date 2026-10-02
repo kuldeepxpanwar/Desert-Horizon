@@ -33,7 +33,7 @@ export default function PackagesClient() {
       price: "₹3,500",
       duration: "1 Night / 2 Days",
       location: "Sam Sand Dunes",
-      image: "/images/home-hero.webp",
+      theme: "bg-gradient-to-br from-[#0ea5e9] to-[#2563eb]", // Petal Theme
       highlights: [
         "Welcome drink on arrival",
         "Camel Safari & Jeep Safari",
@@ -47,7 +47,7 @@ export default function PackagesClient() {
       price: "₹6,500",
       duration: "2 Nights / 3 Days",
       location: "Jaisalmer City & Desert",
-      image: "/images/home-experiences.webp",
+      theme: "bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444]", // Ember Theme
       highlights: [
         "1N Hotel Stay & 1N Desert Camp",
         "Jaisalmer Fort & Patwon Ki Haveli",
@@ -61,7 +61,7 @@ export default function PackagesClient() {
       price: "₹12,500",
       duration: "3 Nights / 4 Days",
       location: "Jodhpur to Jaisalmer",
-      image: "/images/home-camp.webp",
+      theme: "bg-gradient-to-br from-[#06b6d4] via-[#8b5cf6] to-[#ec4899]", // Horizon Theme
       highlights: [
         "Mehrangarh Fort & Umaid Bhawan",
         "Private AC Cab Transfer",
@@ -150,18 +150,13 @@ export default function PackagesClient() {
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 className="group flex flex-col bg-white rounded-xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] border border-brown/5 overflow-hidden hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
               >
-                <div className="relative h-64 w-full overflow-hidden">
-                  <Image 
-                    src={pkg.image} 
-                    alt={pkg.title} 
-                    fill 
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent" />
+                <div className={`relative h-64 w-full overflow-hidden ${pkg.theme} group-hover:opacity-90 transition-opacity duration-700`}>
+                  <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent" />
                   <div className="absolute bottom-4 left-6 right-6 flex justify-between items-end">
-                    <div className="text-white">
-                      <p className="text-xs uppercase tracking-widest text-gold font-bold mb-1">{pkg.location}</p>
-                      <h3 className="text-2xl font-serif">{pkg.title}</h3>
+                    <div className="text-white relative z-10">
+                      <p className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 drop-shadow-sm">{pkg.location}</p>
+                      <h3 className="text-2xl font-serif drop-shadow-sm">{pkg.title}</h3>
                     </div>
                   </div>
                 </div>

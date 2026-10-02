@@ -85,33 +85,14 @@ export default function HomePageClient() {
             Jaisalmer, Rajasthan
           </motion.span>
           
-          {/* Staggered Letter Reveal Text Effect */}
+          {/* Sand Reveal Text Effect */}
           <motion.h1 
-            className="text-5xl md:text-[7rem] font-serif mb-8 leading-tight drop-shadow-[0_10px_20px_rgba(207,136,90,0.3)] flex flex-wrap justify-center gap-x-4 md:gap-x-8"
-            initial="hidden"
-            animate="visible"
-            variants={{
-              hidden: { opacity: 1 },
-              visible: {
-                transition: { staggerChildren: 0.1, delayChildren: 2.2 }
-              }
-            }}
+            initial={{ opacity: 0, filter: "blur(20px)", scale: 1.1, y: 20 }}
+            animate={{ opacity: 1, filter: "blur(0px)", scale: 1, y: 0 }}
+            transition={{ duration: 2, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
+            className="text-5xl md:text-8xl font-serif mb-8 leading-tight drop-shadow-[0_10px_20px_rgba(207,136,90,0.5)]"
           >
-            {"Desert Horizon".split(" ").map((word, wordIndex) => (
-              <span key={wordIndex} className="flex">
-                {word.split("").map((letter, letterIndex) => (
-                  <motion.span
-                    key={letterIndex}
-                    variants={{
-                      hidden: { opacity: 0, y: 40, filter: "blur(10px)" },
-                      visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
-                    }}
-                  >
-                    {letter}
-                  </motion.span>
-                ))}
-              </span>
-            ))}
+            Experience Beyond <br className="hidden md:block" /> the Horizon
           </motion.h1>
           
           <motion.div

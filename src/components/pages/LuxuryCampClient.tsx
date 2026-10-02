@@ -10,7 +10,7 @@ import { ArrowRight, Wifi, Coffee, Wind, Bath, BedDouble, Shield, CheckCircle2 }
 const BlurTextButton = ({ text }: { text: string }) => {
   return (
     <motion.div whileHover="hover" className="w-full relative z-10 mt-auto">
-      <Button variant="ghost" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
+      <Button variant="ghost" className="w-full justify-center bg-emerald-800 text-white hover:bg-gold border-none shadow-lg">
         <motion.span 
           variants={{
             hover: { 

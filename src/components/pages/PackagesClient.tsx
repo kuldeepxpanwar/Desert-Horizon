@@ -35,10 +35,10 @@ const CipherButton = ({ text, onClick }: { text: string, onClick: () => void }) 
   }, [isHovered, text]);
 
   return (
-    <div className="w-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+      <div className="w-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <Button 
         variant="ghost" 
-        className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg transition-colors duration-300 uppercase tracking-widest"
+        className="w-full justify-center bg-emerald-800 text-white hover:bg-gold border-none shadow-lg transition-colors duration-300 uppercase tracking-widest"
         onClick={onClick}
       >
         <span className="inline-block text-center">{displayText}</span>

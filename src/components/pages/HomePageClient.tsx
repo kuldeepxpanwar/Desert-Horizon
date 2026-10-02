@@ -214,9 +214,9 @@ export default function HomePageClient() {
 
           <div className="grid md:grid-cols-3 gap-12 lg:gap-14">
             {[
-              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" },
-              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-[#76cbe6]" },
-              { name: "The Royal Romance", vibe: "Exclusive for Couples", items: ["Private Dune Dining", "Star-Gazing Setup", "Luxury Suite Tent", "Breakfast in Bed"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" }
+              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-gradient-to-br from-[#2c2b29] to-[#1a1a19]" },
+              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-gradient-to-br from-[#8C3A27] to-[#592316]" },
+              { name: "The Royal Romance", vibe: "Exclusive for Couples", items: ["Private Dune Dining", "Star-Gazing Setup", "Luxury Suite Tent", "Breakfast in Bed"], bgColor: "bg-gradient-to-br from-[#3b2f2f] to-[#1f1a19]" }
             ].map((pkg, idx) => (
               <motion.div 
                 key={idx} 

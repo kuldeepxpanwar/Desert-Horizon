@@ -31,26 +31,26 @@ export default function TaxiClient() {
     {
       title: "Jaisalmer Local Sightseeing",
       desc: "Full day local sightseeing covering Jaisalmer Fort, Patwon ki Haveli, Gadisar Lake, and Vyas Chhatri.",
-      sedanPrice: "₹1,800",
-      suvPrice: "₹2,500"
+      sedanPrice: "₹1,800+",
+      suvPrice: "₹2,500+"
     },
     {
       title: "Jaisalmer to Sam Sand Dunes (Drop/Return)",
       desc: "Half day trip to Sam Sand Dunes for desert safari, sunset view, and return to the city.",
-      sedanPrice: "₹1,500",
-      suvPrice: "₹2,200"
+      sedanPrice: "₹1,500+",
+      suvPrice: "₹2,200+"
     },
     {
       title: "Jodhpur to Jaisalmer (One Way Drop)",
       desc: "Comfortable intercity transfer from Jodhpur Airport/Railway Station to Jaisalmer City/Camp.",
-      sedanPrice: "₹4,000",
-      suvPrice: "₹5,500"
+      sedanPrice: "₹4,000+",
+      suvPrice: "₹5,500+"
     },
     {
       title: "Jaisalmer to Longewala & Tanot Mata",
       desc: "Full day excursion to the India-Pakistan border, Longewala war memorial, and Tanot Mata temple.",
-      sedanPrice: "₹3,000",
-      suvPrice: "₹4,500"
+      sedanPrice: "₹3,000+",
+      suvPrice: "₹4,500+"
     }
   ];
 

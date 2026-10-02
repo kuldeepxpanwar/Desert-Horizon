@@ -35,10 +35,10 @@ const CipherButton = ({ text, onClick }: { text: string, onClick: () => void }) 
   }, [isHovered, text]);
 
   return (
-      <div className="w-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
+    <div className="w-full relative z-10 mt-auto pt-6" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
       <Button 
-        variant="ghost" 
-        className="w-full justify-center bg-[#4A1E14] text-white hover:bg-gold border-none shadow-lg transition-colors duration-300 uppercase tracking-widest"
+        variant="outline" 
+        className="w-full justify-center bg-white/95 text-charcoal hover:bg-gold hover:text-white hover:border-gold border border-charcoal/10 rounded-none shadow-sm h-12 uppercase tracking-widest font-sans font-semibold text-sm transition-colors duration-300"
         onClick={onClick}
       >
         <span className="inline-block text-center">{displayText}</span>
@@ -73,7 +73,7 @@ export default function PackagesClient() {
       duration: "1 Night / 2 Days",
       location: "Sam Sand Dunes",
       image: "/images/home-hero.webp",
-      theme: "bg-gradient-to-br from-[#0ea5e9] to-[#2563eb]", // Petal Theme
+      theme: "bg-[#76cbe6]", // Petal Theme
       highlights: [
         "Welcome drink on arrival",
         "Camel Safari & Jeep Safari",
@@ -88,7 +88,7 @@ export default function PackagesClient() {
       duration: "2 Nights / 3 Days",
       location: "Jaisalmer City & Desert",
       image: "/images/home-experiences.webp",
-      theme: "bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444]", // Ember Theme
+      theme: "bg-[#d254b6]", // Ember Theme
       highlights: [
         "1N Hotel Stay & 1N Desert Camp",
         "Jaisalmer Fort & Patwon Ki Haveli",
@@ -103,7 +103,7 @@ export default function PackagesClient() {
       duration: "3 Nights / 4 Days",
       location: "Jodhpur to Jaisalmer",
       image: "/images/home-camp.webp",
-      theme: "bg-gradient-to-br from-[#06b6d4] via-[#8b5cf6] to-[#ec4899]", // Horizon Theme
+      theme: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]", // Horizon Theme
       highlights: [
         "Mehrangarh Fort & Umaid Bhawan",
         "Private AC Cab Transfer",

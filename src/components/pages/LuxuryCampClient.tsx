@@ -9,23 +9,23 @@ import { ArrowRight, Wifi, Coffee, Wind, Bath, BedDouble, Shield, CheckCircle2 }
 
 const BlurTextButton = ({ text }: { text: string }) => {
   return (
-    <motion.div whileHover="hover" className="w-full relative z-10 mt-auto">
-      <Button variant="ghost" className="w-full justify-center bg-[#4A1E14] text-white hover:bg-gold border-none shadow-lg">
+    <div className="w-full relative z-10 mt-auto pt-6">
+      <Button variant="outline" className="w-full justify-center bg-white/95 text-charcoal hover:bg-gold hover:text-white hover:border-gold border border-charcoal/10 rounded-none shadow-sm h-12">
         <motion.span 
           variants={{
             hover: { 
               filter: ["blur(0px)", "blur(4px)", "blur(0px)"],
-              scale: [1, 1.05, 1],
+              scale: [1, 1.02, 1],
               letterSpacing: ["normal", "0.2em", "normal"] 
             }
           }}
           transition={{ duration: 0.6, ease: "easeInOut" }}
-          className="inline-block"
+          className="inline-block uppercase tracking-widest font-sans font-semibold text-sm"
         >
           {text}
         </motion.span>
       </Button>
-    </motion.div>
+    </div>
   );
 };
 
@@ -45,21 +45,21 @@ export default function LuxuryCampClient() {
       name: "The Classic Tent",
       desc: "Our signature canvas tent offering rustic charm without compromising on comfort. Features a plush queen bed and private en-suite bathroom.",
       img: "/images/home-hero.webp",
-      theme: "bg-gradient-to-br from-[#0ea5e9] to-[#2563eb]", // Petal Theme
+      theme: "bg-[#76cbe6]", // Petal Theme
       features: ["Queen Size Bed", "En-suite Bathroom", "Desert View"]
     },
     {
       name: "Premium Swiss Tent",
       desc: "Elevated luxury with a spacious private veranda, king-size bed, premium linens, and a traditional Rajasthani aesthetic.",
       img: "/images/home-hero.webp",
-      theme: "bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444]", // Ember Theme
+      theme: "bg-[#d254b6]", // Ember Theme
       features: ["King Size Bed", "Private Veranda", "Air Conditioning"]
     },
     {
       name: "The Royal Suite",
       desc: "The ultimate desert sanctuary. A sprawling two-room tent featuring a private dining area, opulent bathtub, and butler service.",
       img: "/images/home-hero.webp",
-      theme: "bg-gradient-to-br from-[#06b6d4] via-[#8b5cf6] to-[#ec4899]", // Horizon Theme
+      theme: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]", // Horizon Theme
       features: ["Two Rooms", "Bathtub", "Private Butler"]
     }
   ];

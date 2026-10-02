@@ -81,20 +81,31 @@ export default function TaxiClient() {
             Premium Fleet
             <span className="w-12 h-px bg-gold"></span>
           </p>
-          <h1 className="text-5xl md:text-7xl font-serif text-warm-white mb-6">
-            {"Taxi Services".split(" ").map((word, i) => (
-              <span key={i} className="inline-block mr-4 overflow-hidden">
-                <motion.span
-                  initial={{ y: "100%", filter: "blur(8px)" }}
-                  animate={{ y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 1, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.span>
+          <motion.h1 
+            className="text-5xl md:text-7xl font-serif text-warm-white mb-6 flex justify-center gap-x-3 flex-wrap"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } }
+            }}
+          >
+            {"Taxi Services".split(" ").map((word, wordIndex) => (
+              <span key={wordIndex} className="flex">
+                {word.split("").map((letter, letterIndex) => (
+                  <motion.span
+                    key={letterIndex}
+                    variants={{
+                      hidden: { opacity: 0, y: 20, filter: "blur(8px)" },
+                      visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
+                    }}
+                  >
+                    {letter}
+                  </motion.span>
+                ))}
               </span>
             ))}
-          </h1>
+          </motion.h1>
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

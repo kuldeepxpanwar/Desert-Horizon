@@ -280,17 +280,17 @@ export default function HomePageClient() {
             {[1, 2].map((group) => (
               <div key={group} className="flex gap-8">
                 {[
-                  { name: "Sarah J.", text: "An absolute dream. The hospitality was unmatched." },
-                  { name: "Rahul S.", text: "Best desert camp! The cultural program was authentic." },
-                  { name: "Elena R.", text: "The jeep safari left us speechless. Impeccably clean." },
-                  { name: "Mark T.", text: "A magical night under the stars. 5-star luxury." }
+                  { name: "Sarah J.", text: "An absolute dream. The hospitality was unmatched.", bgColor: "bg-[#F2E8D5]" },
+                  { name: "Rahul S.", text: "Best desert camp! The cultural program was authentic.", bgColor: "bg-[#E6C5C0]" },
+                  { name: "Elena R.", text: "The jeep safari left us speechless. Impeccably clean.", bgColor: "bg-[#C9D1C8]" },
+                  { name: "Mark T.", text: "A magical night under the stars. 5-star luxury.", bgColor: "bg-[#E8C3A8]" }
                 ].map((review, i) => (
-                  <div key={i} className="bg-white/10 p-8 border border-white/20 backdrop-blur-md w-[350px] md:w-[450px] whitespace-normal flex-shrink-0">
+                  <div key={i} className={`${review.bgColor} p-8 border border-white/20 w-[350px] md:w-[450px] whitespace-normal flex-shrink-0 shadow-lg rounded-sm`}>
                     <div className="flex gap-1 text-gold mb-6">
                       {[...Array(5)].map((_, j) => <Star key={j} fill="currentColor" size={16} />)}
                     </div>
-                    <p className="text-warm-white leading-relaxed mb-8 italic">"{review.text}"</p>
-                    <p className="font-semibold uppercase tracking-widest text-xs text-warm-white/80">{review.name}</p>
+                    <p className="text-charcoal leading-relaxed mb-8 italic text-lg">"{review.text}"</p>
+                    <p className="font-bold uppercase tracking-widest text-xs text-charcoal/70">{review.name}</p>
                   </div>
                 ))}
               </div>

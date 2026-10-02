@@ -178,9 +178,9 @@ export default function LuxuryCampClient() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="flex flex-col items-center text-center space-y-4"
               >
-                <div className="text-gold p-4 rounded-full bg-gradient-to-br from-cyan-300 via-blue-400 to-purple-400 shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-white/20 animate-draw-icon relative overflow-hidden group-hover:scale-110 transition-transform duration-300">
+                <div className="text-gold p-4 rounded-full bg-gradient-to-br from-cyan-300 via-blue-400 to-purple-400 shadow-[0_0_15px_rgba(56,189,248,0.4)] border border-white/20 animate-draw-icon relative overflow-hidden group-hover:scale-110 group-hover:shadow-[0_0_25px_rgba(56,189,248,0.6)] transition-all duration-500">
                   <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-30 mix-blend-overlay pointer-events-none" />
-                  <div className="relative z-10 drop-shadow-md">
+                  <div className="relative z-10 drop-shadow-[0_0_8px_rgba(212,175,55,0.9)] group-hover:drop-shadow-[0_0_15px_rgba(212,175,55,1)] transition-all duration-500">
                     {item.icon}
                   </div>
                 </div>

@@ -151,7 +151,7 @@ export default function LuxuryCampClient() {
                   </div>
 
                   <div className="relative z-10 mt-auto">
-                    <Button variant="outline" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
+                    <Button variant="ghost" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
                       View Details
                     </Button>
                   </div>

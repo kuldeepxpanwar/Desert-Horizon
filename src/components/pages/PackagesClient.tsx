@@ -195,7 +195,7 @@ export default function PackagesClient() {
 
                   <div className="relative z-10 mt-auto">
                     <Button 
-                      variant="outline" 
+                      variant="ghost" 
                       className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg transition-colors duration-300"
                       onClick={() => handleBook(pkg.title)}
                     >

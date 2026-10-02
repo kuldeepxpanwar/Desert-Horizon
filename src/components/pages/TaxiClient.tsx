@@ -136,11 +136,9 @@ export default function TaxiClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="relative overflow-hidden rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/20 shadow-lg group hover:-translate-y-1 transition-transform duration-500"
+                className="relative overflow-hidden rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/20 shadow-lg group hover:-translate-y-1 transition-transform duration-500 bg-gradient-to-br from-[#0250c5] to-[#3b82f6]"
               >
-                {/* Ember Sunset Gradient Background */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444] opacity-90 transition-opacity duration-500 group-hover:opacity-100 -z-10" />
-                <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay -z-10" />
+                <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
 
                 <div className="flex-1 relative z-10">
                   <h3 className="text-2xl font-serif text-white mb-2 drop-shadow-sm">{route.title}</h3>
@@ -153,14 +151,14 @@ export default function TaxiClient() {
                     <span className="text-xl font-bold text-white drop-shadow-sm">{route.sedanPrice}</span>
                   </div>
                   <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 p-4 rounded-lg shadow-sm min-w-[120px] relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-white text-orange-600 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg shadow-sm">SUV</div>
+                    <div className="absolute top-0 right-0 bg-white text-blue-700 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg shadow-sm">SUV</div>
                     <span className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 mt-1 drop-shadow-sm">Innova</span>
                     <span className="text-xl font-bold text-white drop-shadow-sm">{route.suvPrice}</span>
                   </div>
                 </div>
 
                 <div className="w-full md:w-auto relative z-10">
-                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center bg-white text-orange-600 hover:bg-orange-50 border-none shadow-md hover:shadow-lg">
+                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center bg-white text-blue-700 hover:bg-blue-50 border-none shadow-md hover:shadow-lg">
                     Book Cab
                   </Button>
                 </div>

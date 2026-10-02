@@ -25,6 +25,28 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Desert Horizon | Luxury Camp in Jaisalmer",
   description: "Experience the ultimate luxury in the heart of the Thar Desert. Unforgettable nights beneath the stars of Jaisalmer.",
+  metadataBase: new URL("https://desert-horizon.vercel.app"),
+  openGraph: {
+    title: "Desert Horizon | Luxury Camp in Jaisalmer",
+    description: "Experience the ultimate luxury in the heart of the Thar Desert.",
+    url: "https://desert-horizon.vercel.app",
+    siteName: "Desert Horizon",
+    images: [
+      {
+        url: "/images/home-hero.webp", // Will act as OG Image
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Desert Horizon | Luxury Camp",
+    description: "Experience the ultimate luxury in the heart of the Thar Desert.",
+    images: ["/images/home-hero.webp"],
+  },
 };
 
 export default function RootLayout({

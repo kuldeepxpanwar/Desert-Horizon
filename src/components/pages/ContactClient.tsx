@@ -20,8 +20,14 @@ export default function ContactClient() {
 
   const [formStatus, setFormStatus] = useState<"idle" | "submitting" | "success">("idle");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    if (formData.get("botcheck")) {
+      // Honeypot triggered, silently succeed for bots
+      return setFormStatus("success");
+    }
+    
     setFormStatus("submitting");
     setTimeout(() => setFormStatus("success"), 1500);
   };
@@ -144,23 +150,29 @@ export default function ContactClient() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
+                  {/* Honeypot field for bot protection */}
+                  <div className="hidden" aria-hidden="true">
+                    <label htmlFor="botcheck">Don't fill this out if you're human:</label>
+                    <input type="text" id="botcheck" name="botcheck" tabIndex={-1} />
+                  </div>
+                  
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="text-xs uppercase tracking-widest font-semibold text-brown/70">First Name</label>
-                      <input required type="text" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
+                      <label htmlFor="firstName" className="text-xs uppercase tracking-widest font-semibold text-brown/70">First Name</label>
+                      <input id="firstName" name="firstName" required type="text" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
                     </div>
                     <div className="space-y-2">
-                      <label className="text-xs uppercase tracking-widest font-semibold text-brown/70">Last Name</label>
-                      <input required type="text" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
+                      <label htmlFor="lastName" className="text-xs uppercase tracking-widest font-semibold text-brown/70">Last Name</label>
+                      <input id="lastName" name="lastName" required type="text" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-semibold text-brown/70">Email Address</label>
-                    <input required type="email" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
+                    <label htmlFor="email" className="text-xs uppercase tracking-widest font-semibold text-brown/70">Email Address</label>
+                    <input id="email" name="email" required type="email" className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-xs uppercase tracking-widest font-semibold text-brown/70">Message</label>
-                    <textarea required rows={4} className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none resize-none"></textarea>
+                    <label htmlFor="message" className="text-xs uppercase tracking-widest font-semibold text-brown/70">Message</label>
+                    <textarea id="message" name="message" required rows={4} className="w-full bg-canvas-parchment border-none focus:ring-1 focus:ring-gold px-4 py-3 outline-none resize-none"></textarea>
                   </div>
                   <Button variant="primary" className="w-full justify-center">
                     {formStatus === "submitting" ? "Sending..." : "Submit Inquiry"}

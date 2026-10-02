@@ -82,6 +82,7 @@ export default function Navbar() {
           <motion.button 
             style={{ color: textColor }}
             className="md:hidden p-2" 
+            aria-label="Open Menu"
             onClick={() => setIsOpen(true)}
           >
             <Menu size={24} />
@@ -99,7 +100,7 @@ export default function Navbar() {
             transition={{ duration: 0.4, ease: "easeInOut" }}
             className="fixed inset-0 z-[60] bg-charcoal/90 text-warm-white flex flex-col justify-center items-center"
           >
-            <button className="absolute top-8 right-6 p-2 text-gold hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
+            <button aria-label="Close Menu" className="absolute top-8 right-6 p-2 text-gold hover:text-white transition-colors" onClick={() => setIsOpen(false)}>
               <X size={32} />
             </button>
             <div className="flex flex-col gap-8 text-center">

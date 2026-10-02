@@ -119,7 +119,7 @@ Please confirm availability and total cost.`;
               </div>
 
               {/* Form Body */}
-              <form onSubmit={handleBooking} className="flex-1 min-h-0 px-8 py-6 space-y-8 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+              <form data-lenis-prevent onSubmit={handleBooking} className="flex-1 min-h-0 px-8 py-6 space-y-8 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
                 
                 {/* Personal Info */}
                 <div className="space-y-5">

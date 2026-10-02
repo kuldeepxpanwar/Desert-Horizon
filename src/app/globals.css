@@ -49,5 +49,5 @@
   }
 }
 
-@keyframes draw-icon { 0% { stroke-dashoffset: 150; } 40% { stroke-dashoffset: 150; } 100% { stroke-dashoffset: 0; } } .animate-draw-icon svg * { stroke-dasharray: 150; animation: draw-icon 3s ease-in-out infinite alternate; }
+@keyframes draw-icon-hover { 0% { stroke-dashoffset: 150; } 100% { stroke-dashoffset: 0; } } .animate-draw-icon svg * { stroke-dasharray: 150; stroke-dashoffset: 0; } .animate-draw-icon:hover svg * { animation: draw-icon-hover 1.2s ease-out forwards; }
 

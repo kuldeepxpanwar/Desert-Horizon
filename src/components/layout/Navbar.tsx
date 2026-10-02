@@ -59,9 +59,34 @@ export default function Navbar() {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           <Link href="/">
-            <motion.span style={{ color: textColor }} className="text-2xl md:text-3xl font-serif tracking-wide font-semibold">
-              Desert Horizon
-            </motion.span>
+            <motion.div 
+              style={{ color: textColor }} 
+              className="text-2xl md:text-3xl font-serif tracking-wide font-semibold flex gap-x-2"
+              initial="hidden"
+              animate="visible"
+              variants={{
+                hidden: { opacity: 1 },
+                visible: {
+                  transition: { staggerChildren: 0.05, delayChildren: 2.0 } // delayed to wait for LoadingScreen
+                }
+              }}
+            >
+              {"Desert Horizon".split(" ").map((word, wordIndex) => (
+                <span key={wordIndex} className="flex">
+                  {word.split("").map((letter, letterIndex) => (
+                    <motion.span
+                      key={letterIndex}
+                      variants={{
+                        hidden: { opacity: 0, y: -10 },
+                        visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                      }}
+                    >
+                      {letter}
+                    </motion.span>
+                  ))}
+                </span>
+              ))}
+            </motion.div>
           </Link>
 
           {/* Desktop Links */}

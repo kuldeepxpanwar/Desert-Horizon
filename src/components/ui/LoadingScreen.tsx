@@ -24,12 +24,31 @@ export default function LoadingScreen() {
       className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-charcoal text-warm-white pointer-events-none"
     >
       <motion.h1 
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-serif mb-6 tracking-wide"
+        className="text-4xl md:text-5xl font-serif mb-6 tracking-wide flex justify-center gap-x-2"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 1 },
+          visible: {
+            transition: { staggerChildren: 0.08, delayChildren: 0.2 }
+          }
+        }}
       >
-        Desert Horizon
+        {"Desert Horizon".split(" ").map((word, wordIndex) => (
+          <span key={wordIndex} className="flex">
+            {word.split("").map((letter, letterIndex) => (
+              <motion.span
+                key={letterIndex}
+                variants={{
+                  hidden: { opacity: 0, y: 15, filter: "blur(5px)" },
+                  visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+              >
+                {letter}
+              </motion.span>
+            ))}
+          </span>
+        ))}
       </motion.h1>
       
       {/* The golden line drawing effect */}

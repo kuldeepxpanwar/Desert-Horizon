@@ -10,7 +10,7 @@
   --color-background: var(--color-warm-white);
   --color-foreground: var(--color-brown);
   
-  --font-sans: "Cal Sans", var(--font-inter);
+  --font-sans: var(--font-calsans), var(--font-inter);
   --font-serif: var(--font-cormorant);
 }
 

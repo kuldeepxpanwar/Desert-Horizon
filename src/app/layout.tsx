@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
-import "cal-sans";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppButton from "@/components/ui/WhatsAppButton";
@@ -22,6 +22,13 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
+});
+
+const calSans = localFont({
+  src: "../../node_modules/cal-sans/fonts/calsans-var-full/CalSansVF.woff2",
+  variable: "--font-calsans",
+  weight: "400 700",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -59,7 +66,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${cormorant.variable} ${inter.variable} antialiased font-sans text-body bg-canvas-parchment`}
+        className={`${cormorant.variable} ${inter.variable} ${calSans.variable} antialiased font-sans text-body bg-canvas-parchment`}
       >
         <CustomCursor />
         <SVGFilters />

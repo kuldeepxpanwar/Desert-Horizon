@@ -85,14 +85,48 @@ export default function HomePageClient() {
             Jaisalmer, Rajasthan
           </motion.span>
           
-          {/* Sand Reveal Text Effect */}
+          {/* Cal.com Style Typographic Reveal */}
           <motion.h1 
-            initial={{ opacity: 0, filter: "blur(20px)", scale: 1.1, y: 20 }}
-            animate={{ opacity: 1, filter: "blur(0px)", scale: 1, y: 0 }}
-            transition={{ duration: 2, delay: 2.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-5xl md:text-8xl font-serif mb-8 leading-tight drop-shadow-[0_10px_20px_rgba(207,136,90,0.5)]"
+            className="text-5xl md:text-[5.5rem] mb-10 leading-[1.1] flex flex-wrap justify-center items-center gap-x-4 gap-y-2 drop-shadow-2xl"
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 1 },
+              visible: { transition: { staggerChildren: 0.15, delayChildren: 2.2 } }
+            }}
           >
-            Experience Beyond <br className="hidden md:block" /> the Horizon
+            {/* Word 1 */}
+            <motion.span 
+              variants={{
+                hidden: { opacity: 0, y: 40, filter: "blur(15px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
+              }}
+              className="font-sans font-semibold text-white tracking-tight"
+            >
+              Experience
+            </motion.span>
+            {/* Word 2 */}
+            <motion.span 
+              variants={{
+                hidden: { opacity: 0, y: 40, filter: "blur(15px)" },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 1.2, ease: [0.22, 1, 0.36, 1] } }
+              }}
+              className="font-sans font-medium text-white/60 tracking-tight"
+            >
+              Beyond
+            </motion.span>
+            {/* Line Break for Mobile */}
+            <div className="w-full h-0 md:hidden"></div>
+            {/* Word 3 */}
+            <motion.span 
+              variants={{
+                hidden: { opacity: 0, y: 40, filter: "blur(20px)", scale: 0.9 },
+                visible: { opacity: 1, y: 0, filter: "blur(0px)", scale: 1, transition: { duration: 1.5, ease: [0.22, 1, 0.36, 1] } }
+              }}
+              className="font-serif italic text-gold text-6xl md:text-[7.5rem] md:ml-2 md:-mt-2"
+            >
+              the Horizon.
+            </motion.span>
           </motion.h1>
           
           <motion.div

@@ -214,36 +214,43 @@ export default function HomePageClient() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"] },
-              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"] },
-              { name: "The Royal Romance", vibe: "Exclusive for Couples", items: ["Private Dune Dining", "Star-Gazing Setup", "Luxury Suite Tent", "Breakfast in Bed"] }
+              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-[#76cbe6]" },
+              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-[#d254b6]" },
+              { name: "The Royal Romance", vibe: "Exclusive for Couples", items: ["Private Dune Dining", "Star-Gazing Setup", "Luxury Suite Tent", "Breakfast in Bed"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" }
             ].map((pkg, idx) => (
               <motion.div 
                 key={idx} 
                 whileHover={{ y: -10 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className={`bg-white/90 backdrop-blur-md p-8 border ${idx === 1 ? 'border-gold shadow-2xl relative z-10' : 'border-charcoal/5 shadow-lg'} flex flex-col h-full rounded-sm`}
+                className={`${pkg.bgColor} shadow-xl relative flex flex-col h-full rounded-sm overflow-hidden`}
               >
-                {idx === 1 && <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gold text-charcoal text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-none whitespace-nowrap">Most Popular</span>}
-                <h3 className="text-2xl font-serif text-brown mb-2">{pkg.name}</h3>
-                <p className="text-gold uppercase tracking-widest text-xs font-semibold mb-8">{pkg.vibe}</p>
-                <ul className="space-y-4 mb-10 flex-grow">
-                  {pkg.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3 text-brown/80 text-sm">
-                      <Check size={18} className="text-gold shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  onClick={() => { setDefaultPkg(pkg.name); setIsBookingOpen(true); }}
-                  variant={idx === 1 ? "primary" : "ghost"} 
-                  className="w-full justify-center mb-4"
-                >
-                  Book via WhatsApp
-                </Button>
-                {idx === 1 && <p className="text-center text-[11px] text-brown/60 uppercase tracking-widest">Experiences from ₹3,000 / guest</p>}
-                {idx === 2 && <p className="text-center text-[11px] text-brown/60 uppercase tracking-widest">Privilege rates for couples</p>}
+                {idx === 1 && <span className="absolute top-0 left-1/2 -translate-x-1/2 bg-white text-charcoal text-[10px] font-bold uppercase tracking-[0.2em] px-4 py-1.5 rounded-b-sm shadow-md whitespace-nowrap z-10">Most Popular</span>}
+                
+                <div className="p-8 flex-col flex flex-grow">
+                  <h3 className="text-2xl font-serif text-white mb-2 mt-4">{pkg.name}</h3>
+                  <p className="text-white/90 uppercase tracking-widest text-xs font-semibold mb-8">{pkg.vibe}</p>
+                  <ul className="space-y-4 mb-10 flex-grow">
+                    {pkg.items.map((item, i) => (
+                      <li key={i} className="flex items-start gap-3 text-white/90 text-sm">
+                        <Check size={18} className="text-white shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {/* Button acting as a white box on top of the gradient at the bottom */}
+                <div className="px-8 pb-8 mt-auto w-full">
+                  <Button 
+                    onClick={() => { setDefaultPkg(pkg.name); setIsBookingOpen(true); }}
+                    variant="outline" 
+                    className="w-full justify-center bg-white text-charcoal hover:bg-charcoal hover:text-white border-none rounded-none shadow-md uppercase tracking-widest h-14 font-sans font-bold transition-all duration-300"
+                  >
+                    Book via WhatsApp
+                  </Button>
+                  {idx === 1 && <p className="text-center text-[11px] text-white/80 uppercase tracking-widest mt-4">Experiences from ₹3,000 / guest</p>}
+                  {idx === 2 && <p className="text-center text-[11px] text-white/80 uppercase tracking-widest mt-4">Privilege rates for couples</p>}
+                </div>
               </motion.div>
             ))}
           </div>

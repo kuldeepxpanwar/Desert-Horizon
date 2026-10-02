@@ -136,27 +136,31 @@ export default function TaxiClient() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: idx * 0.1 }}
-                className="bg-canvas-parchment rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-brown/10 hover:border-gold/50 transition-colors shadow-sm"
+                className="relative overflow-hidden rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 border border-white/20 shadow-lg group hover:-translate-y-1 transition-transform duration-500"
               >
-                <div className="flex-1">
-                  <h3 className="text-2xl font-serif text-brown mb-2">{route.title}</h3>
-                  <p className="text-brown/70 text-sm">{route.desc}</p>
+                {/* Ember Sunset Gradient Background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444] opacity-90 transition-opacity duration-500 group-hover:opacity-100 -z-10" />
+                <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay -z-10" />
+
+                <div className="flex-1 relative z-10">
+                  <h3 className="text-2xl font-serif text-white mb-2 drop-shadow-sm">{route.title}</h3>
+                  <p className="text-white/90 text-sm drop-shadow-sm">{route.desc}</p>
                 </div>
                 
-                <div className="flex gap-6 w-full md:w-auto">
-                  <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-sm min-w-[120px]">
-                    <span className="text-xs uppercase tracking-widest text-brown/50 font-bold mb-1">Sedan</span>
-                    <span className="text-xl font-bold text-charcoal">{route.sedanPrice}</span>
+                <div className="flex gap-6 w-full md:w-auto relative z-10">
+                  <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 p-4 rounded-lg shadow-sm min-w-[120px]">
+                    <span className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 drop-shadow-sm">Sedan</span>
+                    <span className="text-xl font-bold text-white drop-shadow-sm">{route.sedanPrice}</span>
                   </div>
-                  <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white p-4 rounded-lg shadow-sm min-w-[120px] relative overflow-hidden">
-                    <div className="absolute top-0 right-0 bg-gold text-white text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg">SUV</div>
-                    <span className="text-xs uppercase tracking-widest text-brown/50 font-bold mb-1 mt-1">Innova</span>
-                    <span className="text-xl font-bold text-charcoal">{route.suvPrice}</span>
+                  <div className="flex-1 md:flex-none flex flex-col items-center justify-center bg-white/20 backdrop-blur-md border border-white/30 p-4 rounded-lg shadow-sm min-w-[120px] relative overflow-hidden">
+                    <div className="absolute top-0 right-0 bg-white text-orange-600 text-[9px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-bl-lg shadow-sm">SUV</div>
+                    <span className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 mt-1 drop-shadow-sm">Innova</span>
+                    <span className="text-xl font-bold text-white drop-shadow-sm">{route.suvPrice}</span>
                   </div>
                 </div>
 
-                <div className="w-full md:w-auto">
-                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center">
+                <div className="w-full md:w-auto relative z-10">
+                  <Button onClick={() => handleBook(`Taxi: ${route.title}`)} variant="primary" className="w-full md:w-auto justify-center bg-white text-orange-600 hover:bg-orange-50 border-none shadow-md hover:shadow-lg">
                     Book Cab
                   </Button>
                 </div>

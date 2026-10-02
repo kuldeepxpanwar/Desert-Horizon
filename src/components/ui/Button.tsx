@@ -9,7 +9,7 @@ interface ButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "outline";
 }
 
 export default function Button({ children, href, onClick, className = "", variant = "primary" }: ButtonProps) {
@@ -20,7 +20,8 @@ export default function Button({ children, href, onClick, className = "", varian
   const variants = {
     primary: "bg-gold text-charcoal hover:bg-warm-white hover:[filter:url(#sand-ripple)]",
     secondary: "bg-brown text-warm-white hover:bg-gold hover:[filter:url(#sand-ripple)]",
-    ghost: "border border-brown text-brown hover:bg-brown hover:text-warm-white"
+    ghost: "border border-brown text-brown hover:bg-brown hover:text-warm-white",
+    outline: "border border-charcoal/20 bg-transparent text-charcoal hover:bg-charcoal hover:text-white"
   };
 
   const buttonClasses = `${baseClasses} ${variants[variant]} ${className}`;

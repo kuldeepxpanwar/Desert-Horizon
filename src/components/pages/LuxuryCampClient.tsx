@@ -23,18 +23,21 @@ export default function LuxuryCampClient() {
       name: "The Classic Tent",
       desc: "Our signature canvas tent offering rustic charm without compromising on comfort. Features a plush queen bed and private en-suite bathroom.",
       img: "/images/home-hero.webp",
+      theme: "bg-gradient-to-br from-[#0ea5e9] to-[#2563eb]", // Petal Theme
       features: ["Queen Size Bed", "En-suite Bathroom", "Desert View"]
     },
     {
       name: "Premium Swiss Tent",
       desc: "Elevated luxury with a spacious private veranda, king-size bed, premium linens, and a traditional Rajasthani aesthetic.",
       img: "/images/home-hero.webp",
+      theme: "bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444]", // Ember Theme
       features: ["King Size Bed", "Private Veranda", "Air Conditioning"]
     },
     {
       name: "The Royal Suite",
       desc: "The ultimate desert sanctuary. A sprawling two-room tent featuring a private dining area, opulent bathtub, and butler service.",
       img: "/images/home-hero.webp",
+      theme: "bg-gradient-to-br from-[#06b6d4] via-[#8b5cf6] to-[#ec4899]", // Horizon Theme
       features: ["Two Rooms", "Bathtub", "Private Butler"]
     }
   ];
@@ -121,9 +124,9 @@ export default function LuxuryCampClient() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 whileHover={{ y: -10 }}
-                className="bg-white p-6 shadow-lg rounded-sm group flex flex-col h-full border border-transparent hover:border-gold/30 transition-colors duration-500"
+                className="bg-white shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] rounded-xl group flex flex-col h-full border border-brown/5 overflow-hidden hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
               >
-                <div className="relative h-64 w-full overflow-hidden mb-8 rounded-sm">
+                <div className="relative h-64 w-full overflow-hidden">
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.8 }}
@@ -132,18 +135,27 @@ export default function LuxuryCampClient() {
                     <Image src={tent.img} alt={tent.name} fill className="object-cover" />
                   </motion.div>
                 </div>
-                <h3 className="text-2xl font-serif text-brown mb-4">{tent.name}</h3>
-                <p className="text-brown/70 mb-6 flex-grow">{tent.desc}</p>
-                <div className="space-y-2 mb-8">
-                  {tent.features.map((feat, i) => (
-                    <div key={i} className="text-sm uppercase tracking-widest text-gold font-semibold flex items-center gap-2">
-                      <div className="w-1 h-1 bg-gold rounded-full" /> {feat}
+                
+                <div className={`p-8 flex flex-col flex-1 relative ${tent.theme}`}>
+                  <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+                  <div className="relative z-10 flex flex-col flex-1">
+                    <h3 className="text-2xl font-serif text-white mb-4 drop-shadow-sm">{tent.name}</h3>
+                    <p className="text-white/90 mb-6 flex-grow text-sm drop-shadow-sm leading-relaxed">{tent.desc}</p>
+                    <div className="space-y-3 mb-2">
+                      {tent.features.map((feat, i) => (
+                        <div key={i} className="text-sm uppercase tracking-widest text-white/90 font-semibold flex items-center gap-3">
+                          <div className="w-1.5 h-1.5 bg-white rounded-full opacity-80" /> {feat}
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <Button variant="ghost" className="w-full justify-center">
-                  View Details
-                </Button>
+
+                <div className="p-6 bg-white border-t border-brown/5">
+                  <Button variant="ghost" className="w-full justify-center group-hover:bg-gold group-hover:text-white group-hover:border-gold transition-colors duration-300">
+                    View Details
+                  </Button>
+                </div>
               </motion.div>
             ))}
           </div>

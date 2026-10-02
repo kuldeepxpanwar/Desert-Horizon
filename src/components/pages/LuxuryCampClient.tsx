@@ -166,7 +166,7 @@ export default function LuxuryCampClient() {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="flex flex-col items-center text-center space-y-4"
               >
-                <div className="text-gold p-4 rounded-full bg-white/5 border border-white/10">
+                <div className="text-gold p-4 rounded-full bg-white/5 border border-white/10 animate-draw-icon">
                   {item.icon}
                 </div>
                 <h4 className="uppercase tracking-widest text-sm font-semibold">{item.label}</h4>

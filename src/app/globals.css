@@ -48,3 +48,6 @@
     letter-spacing: 0.05em !important;
   }
 }
+
+@keyframes draw-icon { 0% { stroke-dashoffset: 150; } 40% { stroke-dashoffset: 150; } 100% { stroke-dashoffset: 0; } } .animate-draw-icon svg * { stroke-dasharray: 150; animation: draw-icon 3s ease-in-out infinite alternate; }
+

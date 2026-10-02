@@ -12,8 +12,10 @@ export default function WhatsAppButton() {
       aria-label="Contact us on WhatsApp"
     >
       <MessageCircle size={32} />
-      <span className="absolute right-full mr-4 bg-white text-black px-4 py-2 rounded-lg text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap shadow-md pointer-events-none">
+      <span className="absolute right-full mr-4 bg-white text-charcoal px-4 py-2 rounded-lg text-sm font-semibold opacity-0 translate-x-4 scale-95 group-hover:opacity-100 group-hover:translate-x-0 group-hover:scale-100 transition-all duration-300 ease-out whitespace-nowrap shadow-[0_10px_25px_-5px_rgba(0,0,0,0.1)] pointer-events-none origin-right flex items-center gap-2">
+        <span className="w-2 h-2 rounded-full bg-[#25D366] animate-pulse" />
         Chat with us
+        <span className="absolute -right-2 top-1/2 -translate-y-1/2 border-[6px] border-transparent border-l-white" />
       </span>
     </a>
   );

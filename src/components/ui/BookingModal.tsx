@@ -191,8 +191,8 @@ Please confirm availability and total cost.`;
                                 onSelect={(newDate) => { setDate(newDate); setIsCalendarOpen(false); }}
                                 disabled={{ before: new Date() }}
                                 classNames={{
-                                  day_selected: "bg-gold text-white hover:bg-gold/90",
-                                  day_today: "font-bold text-gold",
+                                  selected: "bg-gold text-white hover:bg-gold/90",
+                                  today: "font-bold text-gold",
                                 }}
                               />
                             </motion.div>

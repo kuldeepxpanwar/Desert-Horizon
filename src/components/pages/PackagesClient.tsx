@@ -33,6 +33,7 @@ export default function PackagesClient() {
       price: "₹3,500",
       duration: "1 Night / 2 Days",
       location: "Sam Sand Dunes",
+      image: "/images/home-hero.webp",
       theme: "bg-gradient-to-br from-[#0ea5e9] to-[#2563eb]", // Petal Theme
       highlights: [
         "Welcome drink on arrival",
@@ -47,6 +48,7 @@ export default function PackagesClient() {
       price: "₹6,500",
       duration: "2 Nights / 3 Days",
       location: "Jaisalmer City & Desert",
+      image: "/images/home-experiences.webp",
       theme: "bg-gradient-to-br from-[#f97316] via-[#f59e0b] to-[#ef4444]", // Ember Theme
       highlights: [
         "1N Hotel Stay & 1N Desert Camp",
@@ -61,6 +63,7 @@ export default function PackagesClient() {
       price: "₹12,500",
       duration: "3 Nights / 4 Days",
       location: "Jodhpur to Jaisalmer",
+      image: "/images/home-camp.webp",
       theme: "bg-gradient-to-br from-[#06b6d4] via-[#8b5cf6] to-[#ec4899]", // Horizon Theme
       highlights: [
         "Mehrangarh Fort & Umaid Bhawan",
@@ -150,40 +153,48 @@ export default function PackagesClient() {
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 className="group flex flex-col bg-white rounded-xl shadow-[0_20px_50px_-15px_rgba(0,0,0,0.05)] border border-brown/5 overflow-hidden hover:shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500"
               >
-                <div className={`relative h-64 w-full overflow-hidden ${pkg.theme} group-hover:opacity-90 transition-opacity duration-700`}>
-                  <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 to-transparent" />
+                <div className="relative h-64 w-full overflow-hidden bg-charcoal">
+                  <Image 
+                    src={pkg.image} 
+                    alt={pkg.title} 
+                    fill 
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/20 to-transparent" />
                   <div className="absolute bottom-4 left-6 right-6 flex justify-between items-end">
                     <div className="text-white relative z-10">
-                      <p className="text-xs uppercase tracking-widest text-white/80 font-bold mb-1 drop-shadow-sm">{pkg.location}</p>
+                      <p className="text-xs uppercase tracking-widest text-gold font-bold mb-1 drop-shadow-sm">{pkg.location}</p>
                       <h3 className="text-2xl font-serif drop-shadow-sm">{pkg.title}</h3>
                     </div>
                   </div>
                 </div>
 
-                <div className="p-8 flex flex-col flex-1">
-                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-brown/10">
-                    <div className="flex items-center text-brown/70 text-sm font-medium gap-2">
-                      <Clock size={16} className="text-gold" />
+                <div className={`p-8 flex flex-col flex-1 relative ${pkg.theme}`}>
+                  <div className="absolute inset-0 bg-[url('/images/noise.png')] opacity-20 mix-blend-overlay pointer-events-none" />
+                  <div className="flex items-center justify-between mb-6 pb-6 border-b border-white/20 relative z-10">
+                    <div className="flex items-center text-white/90 text-sm font-medium gap-2">
+                      <Clock size={16} className="text-white" />
                       {pkg.duration}
                     </div>
                     <div className="text-right">
-                      <p className="text-xs text-brown/50 uppercase tracking-widest">Starting From</p>
-                      <p className="text-xl font-bold text-charcoal">{pkg.price} <span className="text-xs font-normal text-brown/50">/pax</span></p>
+                      <p className="text-xs text-white/70 uppercase tracking-widest">Starting From</p>
+                      <p className="text-xl font-bold text-white">{pkg.price} <span className="text-xs font-normal text-white/70">/pax</span></p>
                     </div>
                   </div>
 
-                  <div className="flex-1 mb-8">
+                  <div className="flex-1 relative z-10">
                     <ul className="space-y-3">
                       {pkg.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-brown/80 text-sm">
-                          <CheckCircle2 size={18} className="text-gold shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-3 text-white/90 text-sm font-medium">
+                          <CheckCircle2 size={18} className="text-white shrink-0 mt-0.5 opacity-80" />
                           <span>{item}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
+                </div>
 
+                <div className="p-6 bg-white border-t border-brown/5">
                   <Button 
                     variant="ghost" 
                     className="w-full justify-center group-hover:bg-gold group-hover:text-white group-hover:border-gold transition-colors duration-300"

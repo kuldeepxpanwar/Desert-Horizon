@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "cal-sans": "^2.0.6",
     "date-fns": "^4.4.0",
     "framer-motion": "^12.42.2",
     "gsap": "^3.15.0",

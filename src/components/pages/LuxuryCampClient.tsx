@@ -130,14 +130,14 @@ export default function LuxuryCampClient() {
       <HorizonLine />
 
       {/* 2. Tents Showcase */}
-      <section className="py-24 px-6">
+      <section className="py-32 px-6">
         <div className="container mx-auto max-w-7xl">
-          <div className="text-center mb-20 max-w-3xl mx-auto">
+          <div className="text-center mb-24 max-w-3xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-serif text-brown mb-6">Accommodations</h2>
             <p className="text-brown/70 text-lg">Where the untamed desert meets absolute refinement. Every tent is a private oasis.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-14">
             {tents.map((tent, idx) => (
               <motion.div 
                 key={idx}
@@ -163,10 +163,11 @@ export default function LuxuryCampClient() {
                   <div className="relative z-10 flex flex-col flex-1">
                     <h3 className="text-2xl font-serif text-white mb-4 drop-shadow-sm">{tent.name}</h3>
                     <p className="text-white/90 mb-6 flex-grow text-sm drop-shadow-sm leading-relaxed">{tent.desc}</p>
-                    <div className="space-y-3 mb-8">
+                    <div className="flex flex-col mb-8 w-full border-t border-white/20 mt-4">
                       {tent.features.map((feat, i) => (
-                        <div key={i} className="text-sm uppercase tracking-widest text-white/90 font-semibold flex items-center gap-3">
-                          <div className="w-1.5 h-1.5 bg-white rounded-full opacity-80" /> {feat}
+                        <div key={i} className="py-3.5 border-b border-white/20 text-[13px] uppercase tracking-widest text-white/95 font-medium flex items-center justify-between">
+                          <span>{feat}</span>
+                          <CheckCircle2 size={16} className="text-white opacity-80" />
                         </div>
                       ))}
                     </div>

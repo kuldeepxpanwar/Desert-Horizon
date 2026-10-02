@@ -180,9 +180,9 @@ export default function PackagesClient() {
       <HorizonLine />
 
       {/* 2. Packages Grid */}
-      <section className="py-24 px-6 md:px-12 bg-canvas-parchment text-charcoal relative">
+      <section className="py-32 px-6 md:px-12 bg-canvas-parchment text-charcoal relative">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-14">
             {packages.map((pkg, idx) => (
               <motion.div 
                 key={idx}
@@ -222,14 +222,14 @@ export default function PackagesClient() {
                   </div>
 
                   <div className="flex-1 relative z-10">
-                    <ul className="space-y-3 mb-8">
+                    <div className="flex flex-col mb-8 w-full border-t border-white/20 mt-2">
                       {pkg.highlights.map((item, i) => (
-                        <li key={i} className="flex items-start gap-3 text-white/90 text-sm font-medium">
-                          <CheckCircle2 size={18} className="text-white shrink-0 mt-0.5 opacity-80" />
+                        <div key={i} className="py-3.5 border-b border-white/20 text-sm text-white/95 font-medium flex items-center justify-between gap-3">
                           <span>{item}</span>
-                        </li>
+                          <CheckCircle2 size={16} className="text-white shrink-0 opacity-80" />
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
 
                   <div className="relative z-10 mt-auto">

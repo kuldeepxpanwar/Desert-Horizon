@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import HorizonLine from "@/components/ui/HorizonLine";
 import Button from "@/components/ui/Button";
-import { ArrowRight, Wifi, Coffee, Wind, Bath, BedDouble, Shield } from "lucide-react";
+import { ArrowRight, Wifi, Coffee, Wind, Bath, BedDouble, Shield, CheckCircle2 } from "lucide-react";
 
 const BlurTextButton = ({ text }: { text: string }) => {
   return (

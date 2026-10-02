@@ -141,7 +141,7 @@ export default function LuxuryCampClient() {
                   <div className="relative z-10 flex flex-col flex-1">
                     <h3 className="text-2xl font-serif text-white mb-4 drop-shadow-sm">{tent.name}</h3>
                     <p className="text-white/90 mb-6 flex-grow text-sm drop-shadow-sm leading-relaxed">{tent.desc}</p>
-                    <div className="space-y-3 mb-2">
+                    <div className="space-y-3 mb-8">
                       {tent.features.map((feat, i) => (
                         <div key={i} className="text-sm uppercase tracking-widest text-white/90 font-semibold flex items-center gap-3">
                           <div className="w-1.5 h-1.5 bg-white rounded-full opacity-80" /> {feat}
@@ -149,12 +149,12 @@ export default function LuxuryCampClient() {
                       ))}
                     </div>
                   </div>
-                </div>
 
-                <div className="p-6 bg-white border-t border-brown/5">
-                  <Button variant="ghost" className="w-full justify-center group-hover:bg-gold group-hover:text-white group-hover:border-gold transition-colors duration-300">
-                    View Details
-                  </Button>
+                  <div className="relative z-10 mt-auto">
+                    <Button variant="outline" className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg">
+                      View Details
+                    </Button>
+                  </div>
                 </div>
               </motion.div>
             ))}

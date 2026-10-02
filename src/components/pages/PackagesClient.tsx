@@ -183,7 +183,7 @@ export default function PackagesClient() {
                   </div>
 
                   <div className="flex-1 relative z-10">
-                    <ul className="space-y-3">
+                    <ul className="space-y-3 mb-8">
                       {pkg.highlights.map((item, i) => (
                         <li key={i} className="flex items-start gap-3 text-white/90 text-sm font-medium">
                           <CheckCircle2 size={18} className="text-white shrink-0 mt-0.5 opacity-80" />
@@ -192,16 +192,16 @@ export default function PackagesClient() {
                       ))}
                     </ul>
                   </div>
-                </div>
 
-                <div className="p-6 bg-white border-t border-brown/5">
-                  <Button 
-                    variant="ghost" 
-                    className="w-full justify-center group-hover:bg-gold group-hover:text-white group-hover:border-gold transition-colors duration-300"
-                    onClick={() => handleBook(pkg.title)}
-                  >
-                    Enquire Now
-                  </Button>
+                  <div className="relative z-10 mt-auto">
+                    <Button 
+                      variant="outline" 
+                      className="w-full justify-center bg-white text-charcoal hover:bg-gold hover:text-white border-none shadow-lg transition-colors duration-300"
+                      onClick={() => handleBook(pkg.title)}
+                    >
+                      Enquire Now
+                    </Button>
+                  </div>
                 </div>
               </motion.div>
             ))}

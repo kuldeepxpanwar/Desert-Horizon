@@ -214,8 +214,8 @@ export default function HomePageClient() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-[#76cbe6]" },
-              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-[#d254b6]" },
+              { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" },
+              { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-[#76cbe6]" },
               { name: "The Royal Romance", vibe: "Exclusive for Couples", items: ["Private Dune Dining", "Star-Gazing Setup", "Luxury Suite Tent", "Breakfast in Bed"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" }
             ].map((pkg, idx) => (
               <motion.div 

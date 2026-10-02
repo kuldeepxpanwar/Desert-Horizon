@@ -47,7 +47,16 @@ export default function HomePageClient() {
   ];
 
   return (
-    <motion.div ref={mainRef} style={{ backgroundColor: bgColor }} className="flex flex-col w-full overflow-hidden transition-colors duration-0">
+    <motion.div ref={mainRef} style={{ backgroundColor: bgColor }} className="flex flex-col w-full overflow-hidden transition-colors duration-0 relative">
+      
+      {/* Engineered Architectural Grid Lines (Fyron Style) */}
+      <div className="absolute inset-0 pointer-events-none z-0 flex justify-center opacity-[0.03]">
+        <div className="w-full max-w-7xl h-full border-x border-charcoal grid grid-cols-4 md:grid-cols-12 gap-4 px-6">
+          <div className="hidden md:block col-start-4 col-end-5 border-l border-charcoal h-full" />
+          <div className="hidden md:block col-start-7 col-end-8 border-l border-charcoal h-full" />
+          <div className="hidden md:block col-start-10 col-end-11 border-l border-charcoal h-full" />
+        </div>
+      </div>
       
       <BookingModal 
         isOpen={isBookingOpen} 
@@ -150,7 +159,7 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 2. Featured Experiences */}
-      <section className="py-32 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10 border-y border-charcoal/10">
         <div className="container mx-auto max-w-7xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -206,7 +215,7 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 3. Packages */}
-      <section className="py-32 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10 border-y border-charcoal/10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-20">
             <motion.h2 style={{ color: headingColor }} className="text-4xl md:text-6xl font-serif mb-6">Signature Packages</motion.h2>
@@ -293,7 +302,7 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 5. FAQ */}
-      <section className="py-32 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10 border-y border-charcoal/10">
         <div className="container mx-auto max-w-3xl">
           <motion.h2 style={{ color: headingColor }} className="text-3xl md:text-5xl font-serif mb-16 text-center">Questions?</motion.h2>
           <div className="space-y-4">

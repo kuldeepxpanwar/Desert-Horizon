@@ -3,7 +3,7 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate } from "framer-motion";
-import { ArrowRight, Star, Check, Plus, Minus } from "lucide-react";
+import { ArrowRight, Star, Check, Plus, Minus, CheckCircle2 } from "lucide-react";
 import HorizonLine from "@/components/ui/HorizonLine";
 import Button from "@/components/ui/Button";
 import DuneParallax from "@/components/ui/DuneParallax";
@@ -150,7 +150,7 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 2. Featured Experiences */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10">
         <div className="container mx-auto max-w-7xl">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -206,13 +206,13 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 3. Packages */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-20">
             <motion.h2 style={{ color: headingColor }} className="text-4xl md:text-6xl font-serif mb-6">Signature Packages</motion.h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-12 lg:gap-14">
             {[
               { name: "The Classic Safari", vibe: "Authentic Adventure", items: ["Welcome Drink on Arrival", "Camel Trekking Safari", "Kalbelia Folk Dance", "Traditional Veg Buffet"], bgColor: "bg-gradient-to-br from-[#ff6b9d] to-[#ff9a76]" },
               { name: "The Luxury Oasis", vibe: "The Signature Experience", items: ["Sunset Jeep Safari", "VIP Lounge Seating", "Premium Tent Stay", "Gala Dinner Setup"], bgColor: "bg-[#76cbe6]" },
@@ -229,14 +229,14 @@ export default function HomePageClient() {
                 <div className="p-8 flex-col flex flex-grow">
                   <h3 className="text-2xl font-serif text-white mb-2 mt-4">{pkg.name}</h3>
                   <p className="text-white/90 uppercase tracking-widest text-xs font-semibold mb-8">{pkg.vibe}</p>
-                  <ul className="space-y-4 mb-10 flex-grow">
+                  <div className="flex flex-col mb-10 flex-grow border-t border-white/20 mt-4">
                     {pkg.items.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-white/90 text-sm">
-                        <Check size={18} className="text-white shrink-0" />
+                      <div key={i} className="py-3.5 border-b border-white/20 text-[13px] uppercase tracking-widest text-white/95 font-medium flex items-center justify-between">
                         <span>{item}</span>
-                      </li>
+                        <CheckCircle2 size={16} className="text-white opacity-80" />
+                      </div>
                     ))}
-                  </ul>
+                  </div>
                 </div>
                 
                 {/* Button acting as a white box on top of the gradient at the bottom */}
@@ -293,7 +293,7 @@ export default function HomePageClient() {
       <HorizonLine />
 
       {/* 5. FAQ */}
-      <section className="py-24 px-6 relative z-10">
+      <section className="py-32 px-6 relative z-10">
         <div className="container mx-auto max-w-3xl">
           <motion.h2 style={{ color: headingColor }} className="text-3xl md:text-5xl font-serif mb-16 text-center">Questions?</motion.h2>
           <div className="space-y-4">

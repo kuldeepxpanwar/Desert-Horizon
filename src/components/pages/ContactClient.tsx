@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import HorizonLine from "@/components/ui/HorizonLine";
 import Button from "@/components/ui/Button";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function ContactClient() {
   const heroRef = useRef(null);
@@ -25,11 +26,15 @@ export default function ContactClient() {
     const formData = new FormData(e.currentTarget);
     if (formData.get("botcheck")) {
       // Honeypot triggered, silently succeed for bots
+      toast.success("Message Sent Successfully");
       return setFormStatus("success");
     }
     
     setFormStatus("submitting");
-    setTimeout(() => setFormStatus("success"), 1500);
+    setTimeout(() => {
+      setFormStatus("success");
+      toast.success("Message Sent Successfully");
+    }, 1500);
   };
 
   return (
@@ -209,15 +214,18 @@ export default function ContactClient() {
 
       <HorizonLine />
 
-      {/* 3. Map Placeholder */}
-      <section className="h-[400px] w-full relative bg-charcoal/5 flex items-center justify-center">
-        <div className="absolute inset-0 grayscale opacity-50">
-          <Image src="/images/home-hero.webp" alt="Map" fill className="object-cover" />
-        </div>
-        <div className="relative z-10 bg-white p-6 shadow-xl text-center">
-          <p className="font-serif text-2xl text-brown mb-2">Jaisalmer, Rajasthan</p>
-          <p className="text-sm text-brown/60 uppercase tracking-widest">Interactive Map Placeholder</p>
-        </div>
+      {/* 3. Interactive Map */}
+      <section className="h-[400px] w-full relative bg-charcoal">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14316.591079549338!2d70.5152062!3d26.837889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3947b194f41b4b21%3A0xe53a3e6e8669cd66!2sSam%20Sand%20Dunes!5e0!3m2!1sen!2sin!4v1701111111111!5m2!1sen!2sin" 
+          className="absolute inset-0 w-full h-full border-0 grayscale opacity-80 mix-blend-luminosity hover:mix-blend-normal hover:grayscale-0 transition-all duration-700" 
+          allowFullScreen 
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Desert Horizon Location - Sam Sand Dunes"
+        />
+        {/* Pointer Events None overlay for styling so it feels integrated, but hover reveals it */}
+        <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_100px_rgba(28,25,23,0.5)]" />
       </section>
 
     </div>

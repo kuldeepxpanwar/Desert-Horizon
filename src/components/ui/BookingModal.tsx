@@ -1,8 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { X, Calendar, Users, Package, ChevronRight, Check } from "lucide-react";
+import { DayPicker } from "react-day-picker";
+import "react-day-picker/dist/style.css";
+import { format } from "date-fns";
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -13,7 +16,8 @@ interface BookingModalProps {
 export default function BookingModal({ isOpen, onClose, defaultPackage = "" }: BookingModalProps) {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState<Date>();
+  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [guests, setGuests] = useState("2");
   const [selectedPackage, setSelectedPackage] = useState(defaultPackage || "The Luxury Oasis");
   
@@ -51,7 +55,7 @@ export default function BookingModal({ isOpen, onClose, defaultPackage = "" }: B
       })
       .join(", ");
 
-    const message = `Hello Desert Horizon!\nI would like to make a booking inquiry:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Date:* ${date}\n*Guests:* ${guests}\n*Package:* ${selectedPackage}\n${activityList ? `*Extra Activities:* ${activityList}\n` : ""}
+    const message = `Hello Desert Horizon!\nI would like to make a booking inquiry:\n\n*Name:* ${name}\n*Phone:* ${phone}\n*Date:* ${date ? format(date, 'PPP') : 'Not selected'}\n*Guests:* ${guests}\n*Package:* ${selectedPackage}\n${activityList ? `*Extra Activities:* ${activityList}\n` : ""}
 Please confirm availability and total cost.`;
 
     const encodedMessage = encodeURIComponent(message);
@@ -164,14 +168,36 @@ Please confirm availability and total cost.`;
                     <div className="space-y-2 group relative">
                       <label className="text-xs font-semibold uppercase tracking-wider text-brown/70 group-focus-within:text-gold transition-colors">Check-in Date</label>
                       <div className="relative">
-                        <Calendar size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-brown/40 group-focus-within:text-gold transition-colors z-10" />
-                        <input 
-                          required 
-                          type="date"
-                          value={date}
-                          onChange={(e) => setDate(e.target.value)}
-                          className="w-full bg-white/60 backdrop-blur-sm border border-brown/10 pl-12 pr-4 py-3.5 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 focus:bg-white hover:bg-white transition-all rounded-lg text-brown shadow-sm relative cursor-pointer" 
-                        />
+                        <div 
+                          onClick={() => setIsCalendarOpen(!isCalendarOpen)}
+                          className="w-full bg-white/60 backdrop-blur-sm border border-brown/10 pl-12 pr-4 py-3.5 outline-none focus:border-gold focus:ring-4 focus:ring-gold/10 hover:bg-white transition-all rounded-lg text-brown shadow-sm relative cursor-pointer flex items-center h-[52px]"
+                        >
+                          <Calendar size={18} className={`absolute left-4 ${isCalendarOpen ? 'text-gold' : 'text-brown/40'} transition-colors z-10`} />
+                          <span className={date ? "text-brown" : "text-brown/30"}>
+                            {date ? format(date, "PPP") : "Select a date"}
+                          </span>
+                        </div>
+                        <AnimatePresence>
+                          {isCalendarOpen && (
+                            <motion.div 
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              exit={{ opacity: 0, y: -10 }}
+                              className="absolute top-full left-0 mt-2 p-3 bg-white rounded-xl shadow-2xl border border-brown/10 z-50"
+                            >
+                              <DayPicker
+                                mode="single"
+                                selected={date}
+                                onSelect={(newDate) => { setDate(newDate); setIsCalendarOpen(false); }}
+                                disabled={{ before: new Date() }}
+                                classNames={{
+                                  day_selected: "bg-gold text-white hover:bg-gold/90",
+                                  day_today: "font-bold text-gold",
+                                }}
+                              />
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
                       </div>
                     </div>
                     <div className="space-y-2 group">

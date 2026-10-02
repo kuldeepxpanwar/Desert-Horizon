@@ -9,6 +9,7 @@ import LoadingScreen from "@/components/ui/LoadingScreen";
 import ScrollProgressBar from "@/components/ui/ScrollProgressBar";
 import SVGFilters from "@/components/ui/SVGFilters";
 import CustomCursor from "@/components/ui/CustomCursor";
+import { Toaster } from "react-hot-toast";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -63,6 +64,7 @@ export default function RootLayout({
         <SVGFilters />
         <LoadingScreen />
         <ScrollProgressBar />
+        <Toaster position="bottom-center" toastOptions={{ style: { background: '#1C1917', color: '#D4AF37', border: '1px solid #D4AF37', letterSpacing: '1px' } }} />
         <LenisProvider>
           <Navbar />
           <main className="min-h-screen">
